@@ -1,4 +1,4 @@
-package br.com.rogereis.personapi.controller.dto.response;
+package br.com.rogereis.personapi.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

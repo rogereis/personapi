@@ -1,4 +1,4 @@
-package br.com.rogereis.personapi.controller.dto.request;
+package br.com.rogereis.personapi.dto.request;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-import br.com.rogereis.personapi.controller.dto.request.PersonDTO;
+import br.com.rogereis.personapi.dto.request.PersonDTO;
 import br.com.rogereis.personapi.model.Person;
 
 @Mapper
