@@ -1,6 +1,7 @@
 package br.com.rogereis.personapi.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.rogereis.personapi.dto.request.PersonDTO;
 import br.com.rogereis.personapi.dto.response.MessageResponseDTO;
+import br.com.rogereis.personapi.exception.PersonNotFoundException;
 import br.com.rogereis.personapi.mapper.PersonMapper;
 import br.com.rogereis.personapi.model.Person;
 import br.com.rogereis.personapi.repository.PersonRepository;
@@ -39,6 +41,14 @@ public class PersonService {
 	public List<PersonDTO> listAll() {		
 		List<Person> allPersons = personRepository.findAll();
 		return allPersons.stream().map(personMapper::toDTO).collect(Collectors.toList());
+	}
+
+	public PersonDTO findById(Long id) throws PersonNotFoundException {
+		
+		Person person = personRepository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
+				
+		return personMapper.toDTO(person);
+		
 	}
 
 }
