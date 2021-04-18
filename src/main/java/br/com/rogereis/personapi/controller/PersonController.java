@@ -1,8 +1,11 @@
 package br.com.rogereis.personapi.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.rogereis.personapi.dto.request.PersonDTO;
 import br.com.rogereis.personapi.dto.response.MessageResponseDTO;
-import br.com.rogereis.personapi.model.Person;
 import br.com.rogereis.personapi.service.PersonService;
 
 @RestController
@@ -30,4 +32,8 @@ public class PersonController {
 		return personService.createPerson(personDTO);
 	}
 
+	@GetMapping
+	public List<PersonDTO> listAll() {
+		return personService.listAll();
+	}
 }
